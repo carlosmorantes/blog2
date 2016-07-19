@@ -2,7 +2,10 @@
   %div.col-xs-6.col-xs-offset-3
     %h1 Crear Articulo
 
-    = form_for(@article, :html => {:class => "form-horizontal"}) do |f|   
+    = form_for(@article, :html => {:class => "form-horizontal"}) do |f|
+      - @article.errors.full_messages.each do |msg|
+        %div.alert.alert-danger
+          = msg     
       %div.form-group
         %label.control-label Titulo
         %div
